@@ -4,7 +4,7 @@ export class Calculator {
 
   public static add(numbersString: string): number {
 
-    const stringNumbers: string[] = numbersString.split(/,/);
+    const stringNumbers: string[] = numbersString.split(/[,\n]/);
 
     let sum: number = stringNumbers
     .map(s => {

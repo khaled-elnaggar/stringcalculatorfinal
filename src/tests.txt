@@ -5,3 +5,7 @@ First step:
 - returned value has 1 decimal place
 - string with more than 2 numbers returns => InvalidInputError “Invalid input, can not add more than 2 numbers”
 - input contains non-number => InvalidInputError “Number expected but found non-number“
+
+Newline as separator:
+- string with newline as separator returns the sum
+- (',\n' '\n,' ',,') missing number between comma and newline returns = > InvalidInputError "Invalid input, missing number between \\n and ,"
