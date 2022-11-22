@@ -11,14 +11,14 @@ export class Calculator {
     let separator = Calculator.extractCustomSeparator(numbersString);
     numbersString = Calculator.removeCustomSeparatorDefinition(numbersString);
 
-    const separatorRegexPattern: RegExp = new RegExp(`[${separator}\n]`)
-    const stringNumbers: string[] = numbersString.split(separatorRegexPattern);
-
-    let sum: number = Calculator.addString(stringNumbers);
+    let sum: number = Calculator.addString(separator, numbersString);
     return sum;
   }
 
-  private static addString(stringNumbers: string[]) {
+  private static addString(separator: string, numbersString: string) {
+    const separatorRegexPattern: RegExp = new RegExp(`[${separator}\n]`);
+    const stringNumbers: string[] = numbersString.split(separatorRegexPattern);
+
     let sum: number = stringNumbers
       .map(s => {
         const num: number = Number(s);
@@ -47,7 +47,10 @@ export class Calculator {
     const match = numbersString.match(customDelimiterPattern);
 
     if (match) {
-      return numbersString.substring(2, match[0].length);
+      const separator:string = numbersString.substring(2, match[0].length);
+      StringCalculatorGuard.checkForMixingCustomAndDefaultSeparators(separator, numbersString);
+      
+      return separator;
     } else {
       return this.defaultSeparator;
     }

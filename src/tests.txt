@@ -12,4 +12,5 @@ Newline as separator:
 
 Custom Separator:
 - string can define a custom separator and return the sum successfully
+- custom separator can be more than 1 char
 - mixing custom separator and comma returns => InvalidInputError "Invalid input, mixing custom separator and ,"

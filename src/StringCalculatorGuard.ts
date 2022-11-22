@@ -17,4 +17,8 @@ export class StringCalculatorGuard {
       throw new InvalidInputError(ErrorMessages.missingNumberCommas);
   }
 
+  public static checkForMixingCustomAndDefaultSeparators(separator: string, numbersString: string) {
+    if (separator != ',' && numbersString.includes(','))
+      throw new InvalidInputError(ErrorMessages.mixingCustomAndDefaultSeparatorsErrorMessage);
+  }
 }
