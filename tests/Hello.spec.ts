@@ -1,14 +1,14 @@
-import { Hello } from "../src/Hello"
+describe("String Calculator, First Step", () => {
 
-describe("Test environment suite", () => {
-
-  test("Test running code", () => {
-
-    const hello: Hello = new Hello();
-
-    const greetedName: string = hello.greet("Khaled");
-
-    expect(greetedName).toEqual(`Hello, Khaled`);
+  test("Empty string retuns 0", () => {
+    //Arrange
+    const numbersString: string = '';
+    //Act
+    const actualSum: number = ((str: string) => { return -1; })(numbersString);
+    //Assert
+    const expectedSum: number = 0;
+    expect(actualSum).toEqual(expectedSum);
   })
 
 })
+
