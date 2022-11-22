@@ -14,6 +14,11 @@ export class Calculator {
     const separatorRegexPattern: RegExp = new RegExp(`[${separator}\n]`)
     const stringNumbers: string[] = numbersString.split(separatorRegexPattern);
 
+    let sum: number = Calculator.addString(stringNumbers);
+    return sum;
+  }
+
+  private static addString(stringNumbers: string[]) {
     let sum: number = stringNumbers
       .map(s => {
         const num: number = Number(s);
