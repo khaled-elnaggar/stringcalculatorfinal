@@ -1,9 +1,12 @@
+import { InvalidInputError } from "./InvalidInputError";
 import { StringCalculatorGuard } from "./StringCalculatorGuard";
 
 export class Calculator {
 
   public static add(numbersString: string): number {
-
+    StringCalculatorGuard.checkForMissingNumberNewlineAndComma(numbersString);
+    StringCalculatorGuard.checkForMissingNumberCommas(numbersString);
+    
     const stringNumbers: string[] = numbersString.split(/[,\n]/);
 
     let sum: number = stringNumbers
