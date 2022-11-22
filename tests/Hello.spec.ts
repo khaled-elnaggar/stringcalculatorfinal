@@ -12,5 +12,15 @@ describe("String Calculator, First Step", () => {
     expect(actualSum).toEqual(expectedSum);
   })
 
+  test("String with one number retuns itself", () => {
+    //Arrange
+    const numbersString: string = '1';
+    //Act
+    const actualSum: number = Calculator.add(numbersString);
+    //Assert
+    const expectedSum: number = 1;
+    expect(actualSum).toEqual(expectedSum);
+  })
+
 })
 
