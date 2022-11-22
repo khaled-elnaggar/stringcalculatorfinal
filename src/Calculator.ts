@@ -5,7 +5,6 @@ export class Calculator {
   public static add(numbersString: string): number {
 
     const stringNumbers: string[] = numbersString.split(/,/);
-    StringCalculatorGuard.checkForNumbersCount(stringNumbers);
 
     let sum: number = stringNumbers
     .map(s => {

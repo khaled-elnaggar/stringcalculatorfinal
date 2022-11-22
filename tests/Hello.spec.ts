@@ -44,16 +44,6 @@ describe("String Calculator, First Step", () => {
     expect(actualSum).toEqual(expectedSum);
   })
 
-  test("String with more than 2 numbers retuns error", () => {
-    //Arrange
-    const numbersString: string = '1.11,2.2,3,4';
-    //Act
-    //Assert
-    expect(()=>{
-      Calculator.add(numbersString);
-    }).toThrow(new InvalidInputError(ErrorMessages.moreThanTwoNumbersErrorMessage))
-  })
-
   test("String with non-number retuns error", () => {
     //Arrange
     const numbersString: string = '1,x';
@@ -64,7 +54,14 @@ describe("String Calculator, First Step", () => {
     }).toThrow(new InvalidInputError(ErrorMessages.nonNumberErrorMessage))
   })
 
-
+  test("String with more than 2 numbers retuns error", () => {
+    //Arrange
+    const numbersString: string = '1.11,2.2,3,4';
+    //Act
+    const actualSum: number = Calculator.add(numbersString);
+    //Assert
+    expect(actualSum).toEqual(10.3)
+  })
 
 })
 
