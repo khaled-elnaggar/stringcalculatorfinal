@@ -9,3 +9,7 @@ First step:
 Newline as separator:
 - string with newline as separator returns the sum
 - (',\n' '\n,' ',,') missing number between comma and newline returns = > InvalidInputError "Invalid input, missing number between \\n and ,"
+
+Custom Separator:
+- string can define a custom separator and return the sum successfully
+- mixing custom separator and comma returns => InvalidInputError "Invalid input, mixing custom separator and ,"

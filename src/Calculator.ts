@@ -6,8 +6,18 @@ export class Calculator {
   public static add(numbersString: string): number {
     StringCalculatorGuard.checkForMissingNumberNewlineAndComma(numbersString);
     StringCalculatorGuard.checkForMissingNumberCommas(numbersString);
-    
-    const stringNumbers: string[] = numbersString.split(/[,\n]/);
+    let separator: string = ',';
+
+    const customDelimiterPattern: RegExp = new RegExp("//.+\n");
+    const match = numbersString.match(customDelimiterPattern);
+
+    if(match){
+      separator = numbersString.substring(2, match[0].length);
+      numbersString = numbersString.substring(match[0].length);
+    }
+
+    const separatorRegexPattern: RegExp = new RegExp(`[${separator}\n]`)
+    const stringNumbers: string[] = numbersString.split(separatorRegexPattern);
 
     let sum: number = stringNumbers
     .map(s => {
