@@ -21,4 +21,12 @@ export class StringCalculatorGuard {
     if (separator != ',' && numbersString.includes(','))
       throw new InvalidInputError(ErrorMessages.mixingCustomAndDefaultSeparatorsErrorMessage);
   }
+
+  
+  public static checkForNegativeNumbers(numbers: number[]) {
+    const negativeNumbers: number[] = numbers.filter(n => n < 0);
+    if (negativeNumbers.length > 1)
+      throw new InvalidInputError(ErrorMessages.getNegativeNumbers(negativeNumbers));
+  }
+
 }

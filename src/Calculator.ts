@@ -19,12 +19,15 @@ export class Calculator {
     const separatorRegexPattern: RegExp = new RegExp(`[${separator}\n]`);
     const stringNumbers: string[] = numbersString.split(separatorRegexPattern);
 
-    let sum: number = stringNumbers
-      .map(s => {
-        const num: number = Number(s);
-        StringCalculatorGuard.checkForNonNumber(num);
-        return num;
-      })
+    const numbers: number[] = stringNumbers.map(s => {
+      const num: number = Number(s);
+      StringCalculatorGuard.checkForNonNumber(num);
+      return num;
+    });
+
+    StringCalculatorGuard.checkForNegativeNumbers(numbers);
+
+    let sum: number = numbers
       .reduce((a, b) => a + b, 0);
 
     sum = Calculator.roundToOneDecimalPoint(sum);
@@ -47,9 +50,9 @@ export class Calculator {
     const match = numbersString.match(customDelimiterPattern);
 
     if (match) {
-      const separator:string = numbersString.substring(2, match[0].length);
+      const separator: string = numbersString.substring(2, match[0].length);
       StringCalculatorGuard.checkForMixingCustomAndDefaultSeparators(separator, numbersString);
-      
+
       return separator;
     } else {
       return this.defaultSeparator;
