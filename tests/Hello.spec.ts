@@ -1,4 +1,5 @@
 import { Calculator } from "../src/Calculator";
+import { ErrorMessages } from "../src/ErrorMessages";
 import { InvalidInputError } from "../src/InvalidInputError";
 
 describe("String Calculator, First Step", () => {
@@ -50,7 +51,20 @@ describe("String Calculator, First Step", () => {
     //Assert
     expect(()=>{
       Calculator.add(numbersString);
-    }).toThrow(new InvalidInputError("Invalid input, can not add more than 2 numbers"))
+    }).toThrow(new InvalidInputError(ErrorMessages.moreThanTwoNumbersErrorMessage))
   })
+
+  test("String with non-number retuns error", () => {
+    //Arrange
+    const numbersString: string = '1,x';
+    //Act
+    //Assert
+    expect(()=>{
+      Calculator.add(numbersString);
+    }).toThrow(new InvalidInputError(ErrorMessages.nonNumberErrorMessage))
+  })
+
+
+
 })
 
