@@ -33,7 +33,6 @@ describe("String Calculator, New line as separator", ()=>{
       Calculator.add(numbersString);
     }).toThrow(new InvalidInputError(ErrorMessages.missingNumberNewlineComma))
   })
-
   
   test("String with missing number between comma and newline retuns error", () => {
     //Arrange

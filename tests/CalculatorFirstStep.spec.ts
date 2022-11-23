@@ -55,6 +55,5 @@ describe("String Calculator, First Step", () => {
   })
 
 
-
 })
 

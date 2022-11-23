@@ -1,19 +1,22 @@
-First step:
-- empty string should return 0
-- string with one number returns itself
-- string with 2 numbers returns their sum
-- returned value has 1 decimal place
-- string with more than 2 numbers returns => InvalidInputError “Invalid input, can not add more than 2 numbers”
-- input contains non-number => InvalidInputError “Number expected but found non-number“
+First step (30m-50m):
+- empty string should return 0                  | Test class & test naming conventions + AAA + start with code inlined inside the test + fake it till you make it
+- string with one number returns itself         | business
+- string with 2 numbers returns their sum       | business
+- returned value has 1 decimal place            | extract round method (tests are behaviour sensitive not structure)
+X string with more than 2 numbers returns => InvalidInputError “Invalid input, can not add more than 2 numbers”       | (AAA throw) + SLAP +refactor Guard + ErrorMessages (DRY)
+- input contains non-number => InvalidInputError “Number expected but found non-number“     | Guard
 
-Newline as separator:
-- string with newline as separator returns the sum
+Many numbers (pair-10m):
+- input with more than 2 numbers return         | exercise + new test class
+
+Newline as separator (30m):
+- string with newline as separator returns the sum        | business & new test class
 - (',\n' '\n,' ',,') missing number between comma and newline returns = > InvalidInputError "Invalid input, missing number between \\n and ,"
 
-Custom Separator:
-- string can define a custom separator and return the sum successfully
+Custom Separator (40m):                         | ubiquitous language
+- string can define a custom separator and return the sum successfully    | structure insesitive (method extractions) + refactor more and reduce cognitive load
 - custom separator can be more than 1 char
 - mixing custom separator and comma returns => InvalidInputError "Invalid input, mixing custom separator and ,"
 
-Negative Numbers:
+Negative Numbers (pair-30m):
 - string with negative numbers returns => InvalidInputError "Negative not allowed : [...]"
