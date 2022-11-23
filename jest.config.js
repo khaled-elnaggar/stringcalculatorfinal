@@ -2,5 +2,8 @@
 
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node'
+  testEnvironment: 'node',
+  transform: {
+    '^.+\\.(t|j)sx?$': '@swc/jest',
+  }
 };
