@@ -50,7 +50,7 @@ export class Calculator {
     const match = numbersString.match(customDelimiterPattern);
 
     if (match) {
-      const separator: string = numbersString.substring(2, match[0].length);
+      const separator: string = numbersString.substring(2, match[0].length - 1);
       StringCalculatorGuard.checkForMixingCustomAndDefaultSeparators(separator, numbersString);
 
       return separator;
